@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    circle{
+      stroke-dasharray: 505px;
+      stroke-dashoffset: 505px;
+      transition: 1s ;
+    }
+
+    svg:hover circle{
+      stroke-dashoffset: 1010px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    stroke-dasharray
+    stroke-dashoffset
+   -->
+
+   <!-- 
+     我感觉可以用这个画进度条
+    -->
+   <svg x="400px" y="0px" width="300px" height="200px" viewBox="0 0 300 100">
+    <circle cx="150px" cy="50px" r="80px" stroke="blue" fill="none" ></circle>
+  </svg>
+
+  <script>
+    const circle = document.querySelector('circle')
+    let l = 505
+    setInterval(() => {
+      l-=10;
+      circle.style.strokeDashoffset = l+'px';
+    }, 100);
+  </script>
+</body>
+</html>

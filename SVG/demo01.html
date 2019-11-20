@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 
+    x,y是定位属性 ， 相对于左上角定位 viewBox是可视区域
+    rect 定义 矩形 x y 起始点 
+    cicle  cx cy r fill  stroke 
+    line i
+   -->
+    <svg x="0px" y="0px" width="300px" height="100px" viewBox="0 0 300 100">
+      <rect x="10" y="5" fill="white" stroke="black" width="90" height="90"></rect>
+      <circle cx="170" cy="50" r="45" fill="green" stroke="black"></circle>
+      <line fill="none" stroke="black" x1="230" y1="6" x2="260" y2="95"></line>
+    </svg>
+    <!-- 
+      ellipse 椭圆
+      path 路径
+     -->
+    <svg x="400px" y="0px" width="300px" height="100px" viewBox="0 0 300 100">
+      <line fill="green" stroke="red" x1="0" y1="0" x2="300" y2="100"></line>
+      <ellipse cx="100" cy="50" rx="30" ry="10" fill="green" stroke="blue"></ellipse>
+      <path>
+        
+      </path>
+    </svg>
+    
+  </body>
+
+</html>
