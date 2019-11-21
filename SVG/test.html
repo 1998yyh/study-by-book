@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      svg {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      div{
+        position: relative;
+        margin: 100px auto;
+        transform: rotate(-90deg);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div>
+      <svg width="61px" height="61px">
+        <circle fill="black" cx="30.5px" cy="30.5px" r="30.5px" stroke="red" stroke-width="60px"></circle>
+      </svg>
+      <svg width="60px" height="60px">
+        <circle fill="blue" cx="30px" cy="30px" r="30px" stroke="pink" stroke-width="60px"></circle>
+      </svg>
+    </div>
+    <script>
+      var c = document.querySelectorAll('circle')
+      c.forEach(function (v) {
+        console.log(v.style.strokeDasharray)
+        console.log()
+        v.style.strokeDasharray = `${v.r.baseVal.value*2*Math.PI*0.7} ${v.r.baseVal.value*2*Math.PI}`
+      })
+    </script>
+  </body>
+
+</html>

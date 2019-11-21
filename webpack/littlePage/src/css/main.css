@@ -1,0 +1,12 @@
+svg{
+  width: 200px;
+  height: 200px;
+}
+
+
+div{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to right,10% transparent,100% blue);
+}
