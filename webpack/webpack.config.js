@@ -81,7 +81,7 @@ module.exports = {
       include: [
         path.resolve(__dirname, 'src')
       ],
-            /**
+      /**
        *  type: javascript/auto     webpack 3 默认的类型，支持现有的各种JS代码模块类型
        *        javascript/esm      ECMAScript modules 其他模块类型不支持 .mjs文件的默认类型
        *        javascript/dynamic    CommonJS和AMD，排除ESm
@@ -90,7 +90,7 @@ module.exports = {
        */
       type: 'javascript/auto',
       use: 'babel-loader'
-    },{
+    }, {
 
     }],
   },
@@ -117,8 +117,7 @@ module.exports = {
     /**
      * 定义的一些全局变量 需要注意的以下几点
      * 如果配置的是字符串，那么整个字符串会被当成代码片段来执行，其结果作为最终变量的值
-     * 如果配置的值不是字符串，也不是一个对象字面量，那么该值会被转为一个字符串，如true，最后的结果是'true'
-     * 如果配置的是一个对象字面量，那么该对象的所有key会议相同的方式去定义
+     * 如果配置的值不是字符串，也不是一个对象字面量，那么该值会被转为一个字符串，如true，最后的结果是'true'v
      * 
      */
     new webpack.DefinePlugin({
@@ -130,15 +129,21 @@ module.exports = {
         APP_VERSION: JSON.stringify('1.1.2') // const CONSTANTS = { APP_VERSION: '1.1.2' }
       }
     }),
-
+    // 自动加载模块ProvidePlugin 不用每次都引入
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    }),
     /**
-     * 
+     *  自动忽略某部分代码
+     *  IgnorePlugin 
+     *  第一个是匹配引入模块路径的正则表达式，第二个是匹配模块的对应上下文，即所在目录名。
+     *  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
      */
-    new CopyWebpackPlugin([
-      {
-        from:'littlePage/src/images', to: 'build/images'
-      }
-    ]),
+    // 复制资源
+    new CopyWebpackPlugin([{
+      from: 'littlePage/src/images',
+      to: 'build/images'
+    }]),
     new HtmlWebpackPlugin({
       // 输出文件名字
       filename: 'a.html',
@@ -163,5 +168,46 @@ module.exports = {
       '~': path.resolve(__dirname)
     },
     extensions: ['.js', '.vue', '.json']
+  },
+  devServer: {
+    // 指定静态服务器的域名 一般为localhost:8080 使用nginx时应该使用该配置来指定nginx配置使用的服务器域名
+    public:'http://localhost:8080/',
+    //  端口号 默认8080
+    port:'8080',
+    /**
+     * 用于指定构建好的静态文件在浏览器中是用什么路径去访问的，默认是 / 
+     * 例如构建好的文件boundle.js 完整的访问路径是 http://localhost:8080/boundle.js
+     * 如果配置了 publicPath:'assets/' 那么上述 的路径 会变成 http://localhost:8080/assets/boundle.js
+     * 如果使用了 HMR ，那么要设置publicPath 必须使用完整的URL5
+     */
+    publicPath:'/',
+    // proxy 用于配置将特定的URL请求代理到另一台服务器上，跨域解决
+    proxy:{
+      '/api':{
+        target:'http://localhost:3000',
+        pathRewrite:{'^/api':''}
+      }
+    },
+    /**
+     * 用于配置提供额外静态文件的目录，
+     * 之前提到的publicPath是构建好的结果以什么样的路径去访问，
+     * 而 contentBase 是配置额外的静态文件内容的访问路径
+     * 即那些不经过webpack构建，但需要在webpack-dev-server中提供访问的静态资源
+     * 
+     */
+    // contentBase:path.join(__dirname,'littlePage/images')
+    // contentBase:[path.join(__dirname,'littlePage/images'),path.join(__dirname,'littlePage/asserts')]
+
+    /**
+     * before 用于做一些简单的mock数据
+     * after 打印日志，没啥屌用
+     */
+    // before(app){
+    //   app.get('/some/path',(req,res)=>{
+    //     res.json({custom:"response"})
+    //   })
+    // }
+
+    // webpack-dev-middleware 
   }
 }
