@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 
 module.exports = {
   // 单个文件入口
@@ -14,22 +17,22 @@ module.exports = {
   // }
 
   // 多个入口文件
-  // entry:{
-  //   main:'./littlePage/src/js/main.js',
-  //   index:'./littlePage/src/js/index.js',
-  // },
-  // output:{
-  //   filename:'[name].js',
-  //   path:path.resolve(__dirname , 'dist')
-  // }
+  entry: {
+    main: './littlePage/src/js/main.js',
+    index: './littlePage/src/js/index.js',
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist')
+  },
 
   // 多个文件打包
-  entry: {
-    more: [
-      './littlePage/src/js/main.js',
-      './littlePage/src/js/index.js'
-    ]
-  },
+  // entry: {
+  //   more: [
+  //     './littlePage/src/js/main.js',
+  //     './littlePage/src/js/index.js'
+  //   ]
+  // },
   module: {
     rules: [{
       test: /\.css/,
@@ -74,7 +77,11 @@ module.exports = {
       use: ['style-loader', 'css-loader', 'sass-loader']
     }, {
       test: /\.(png|jpe?g|gif)$/,
-      use: ['file-loader']
+      // use: ['file-loader']
+      use: [{
+        loader: 'file-loader',
+        options: {}
+      }]
     }, {
       enforce: 'pre',
       test: /\.js$/,
@@ -94,11 +101,11 @@ module.exports = {
 
     }],
   },
-  output: {
-    filename: 'more.js',
-    path: path.resolve(__dirname, 'dist/[hash:8]'),
-    publicPath: path.resolve(__dirname, 'dist/[hash:8]')
-  },
+  // output: {
+  //   filename: 'more.js',
+  //   path: path.resolve(__dirname, 'dist/[hash:8]'),
+  //   publicPath: path.resolve(__dirname, 'dist/[hash:8]')
+  // },
   /**
    * plugins里也可以先new 对象然后再放到plugins里 例如
    *  const HtmlWebpackPluginObj = new HtmlWebpackPlugin({filename:'a.html',template:'littlePage/src/template/tamplate.html'})
@@ -146,15 +153,16 @@ module.exports = {
     }]),
     new HtmlWebpackPlugin({
       // 输出文件名字
-      filename: 'a.html',
+      filename: 'index.html',
       // 使用的模板
       template: 'littlePage/src/template/template.html'
     }),
     new ExtractTextPlugin('style.css'),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash:8].css',
+      filename: '[name].css',
       chunkFilename: '[id.css]'
-    })
+    }),
+    new CleanWebpackPlugin(),
   ],
   resolve: {
     // noParse:/jquery|lodash/,
@@ -171,21 +179,23 @@ module.exports = {
   },
   devServer: {
     // 指定静态服务器的域名 一般为localhost:8080 使用nginx时应该使用该配置来指定nginx配置使用的服务器域名
-    public:'http://localhost:8080/',
+    public: 'http://localhost:8080/',
     //  端口号 默认8080
-    port:'8080',
+    port: '8080',
     /**
      * 用于指定构建好的静态文件在浏览器中是用什么路径去访问的，默认是 / 
      * 例如构建好的文件boundle.js 完整的访问路径是 http://localhost:8080/boundle.js
      * 如果配置了 publicPath:'assets/' 那么上述 的路径 会变成 http://localhost:8080/assets/boundle.js
      * 如果使用了 HMR ，那么要设置publicPath 必须使用完整的URL5
      */
-    publicPath:'/',
+    publicPath: '/',
     // proxy 用于配置将特定的URL请求代理到另一台服务器上，跨域解决
-    proxy:{
-      '/api':{
-        target:'http://localhost:3000',
-        pathRewrite:{'^/api':''}
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     },
     /**
