@@ -1,0 +1,18 @@
+.my_animate{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0,0);
+}
+.my_animate-left{
+  transform: translate(100%,0);
+}
+.my_animate-right{
+  transform: translate(-100%,0);
+}
+.my_animate-bottom{
+  transform: translate(0%,100%);
+}
+.my_animate-top{
+  transform: translate(0%,-100%);
+}
