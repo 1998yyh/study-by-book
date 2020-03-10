@@ -1,0 +1,534 @@
+.chapter-1__view-1,
+.chapter-1__effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 751px) {
+  .chapter-1__view-1,
+  .chapter-1__effects {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .chapter-1__view-1,
+  .chapter-1__effects {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.chapter-1__view-1 .effect,
+.chapter-1__effects .effect {
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 751px) {
+  .chapter-1__view-1 .effect,
+  .chapter-1__effects .effect {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .chapter-1__view-1 .effect,
+  .chapter-1__effects .effect {
+    width: 30vh;
+    height: 30vh;
+  }
+}
+
+.chapter-1__effects-1 .effect::before, .chapter-1__effects-1 .effect::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.chapter-1__effects-1 .effect::before {
+  background-color: #c3ce5f;
+}
+
+.chapter-1__effects-1 .effect::after {
+  background-color: #ffffff;
+}
+
+.chapter-1__effects-2 .effect::before, .chapter-1__effects-2 .effect::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+}
+
+.chapter-1__effects-2 .effect::before {
+  background-color: #c3ce5f;
+}
+
+.chapter-1__effects-2 .effect::after {
+  background-color: #ffffff;
+}
+
+.chapter-1__effects-3 .effect::before, .chapter-1__effects-3 .effect::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left bottom;
+  transform: rotate(-90deg);
+}
+
+.chapter-1__effects-3 .effect::before {
+  background-color: #4aa9a4;
+}
+
+.chapter-1__effects-3 .effect::after {
+  background-color: #fff;
+}
+
+.chapter-1__effects-4 .effect {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chapter-1__effects-4 .effect span {
+  display: block;
+  width: 50%;
+  height: 50%;
+  background-color: #ce9740;
+  transform: scale(0);
+}
+
+/**
+ * animation
+ */
+.chapter-1[data-state="active"] {
+  /**
+   * effects-1
+   */
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(1) {
+  animation: fadein 0.01s ease 0.5s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(1)::before {
+  animation: scale0-1 0.4s ease 0s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(1)::after {
+  animation: scale0-1 0.4s ease 0.1s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(2) {
+  animation: fadein 0.01s ease 0.7s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(2)::before {
+  animation: scale0-1 0.4s ease 0.2s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(2)::after {
+  animation: scale0-1 0.4s ease 0.3s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(3) {
+  animation: fadein 0.01s ease 0.9s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(3)::before {
+  animation: scale0-1 0.4s ease 0.4s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-1 .effect:nth-child(3)::after {
+  animation: scale0-1 0.4s ease 0.5s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(1) {
+  animation: turn1 0.5s ease 0.6s forwards, fadein 0.01s ease 1.1s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(1)::before {
+  animation: scale0-1 0.4s ease 0.6s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(1)::after {
+  animation: scale0-1 0.4s ease 0.7s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(2) {
+  animation: turn1 0.5s ease 0.8s forwards, fadein 0.01s ease 1.3s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(2)::before {
+  animation: scale0-1 0.4s ease 0.8s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(2)::after {
+  animation: scale0-1 0.4s ease 0.9s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(3) {
+  animation: turn1 0.5s ease 1.0s forwards, fadein 0.01s ease 1.5s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(3)::before {
+  animation: scale0-1 0.4s ease 1.0s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-2 .effect:nth-child(3)::after {
+  animation: scale0-1 0.4s ease 1.1s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-3 .effect:nth-child(1)::before {
+  animation: chapter-1__show-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.2s forwards, chapter-1__hidden-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.8s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-3 .effect:nth-child(1)::after {
+  animation: chapter-1__show-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.3s forwards, chapter-1__hidden-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.7s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-3 .effect:nth-child(2)::before {
+  animation: chapter-1__show-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.4s forwards, chapter-1__hidden-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 2s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-3 .effect:nth-child(2)::after {
+  animation: chapter-1__show-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.5s forwards, chapter-1__hidden-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.9s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-3 .effect:nth-child(3)::before {
+  animation: chapter-1__show-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.6s forwards, chapter-1__hidden-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 2.2s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-3 .effect:nth-child(3)::after {
+  animation: chapter-1__show-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 1.7s forwards, chapter-1__hidden-effects-3 0.4s cubic-bezier(1, 0, 0, 1) 2.1s forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(1) span:nth-child(1) {
+  animation: scale0-1 .3s ease 2.1s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(1) span:nth-child(2) {
+  animation: scale0-1 .3s ease 2.2s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(1) span:nth-child(3) {
+  animation: scale0-1 .3s ease 2.3s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(1) span:nth-child(4) {
+  animation: scale0-1 .3s ease 2.4s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(2) span:nth-child(1) {
+  animation: scale0-1 .3s ease 2.4s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(2) span:nth-child(2) {
+  animation: scale0-1 .3s ease 2.5s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(2) span:nth-child(3) {
+  animation: scale0-1 .3s ease 2.6s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(2) span:nth-child(4) {
+  animation: scale0-1 .3s ease 2.7s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(3) span:nth-child(1) {
+  animation: scale0-1 .3s ease 2.7s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(3) span:nth-child(2) {
+  animation: scale0-1 .3s ease 2.8s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(3) span:nth-child(3) {
+  animation: scale0-1 .3s ease 2.9s 2 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__effects-4 .effect:nth-child(3) span:nth-child(4) {
+  animation: scale0-1 .3s ease 3s 2 alternate forwards;
+}
+
+@keyframes scale0-1 {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes turn1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes chapter-1__show-effects-3 {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes chapter-1__hidden-effects-3 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+/**
+  view -1
+*/
+.chapter-1__view-1 div {
+  background-color: #283c5f;
+  opacity: 0;
+}
+
+@media screen and (min-width: 751px) {
+  .chapter-1__view-1 div {
+    width: 25%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .chapter-1__view-1 div {
+    width: 100%;
+    height: 25%;
+  }
+}
+
+.chapter-1[data-state="active"] .chapter-1__view-1 div:nth-child(1) {
+  animation: fadein 0.05s linear 3.1s 3 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__view-1 div:nth-child(2) {
+  animation: fadein 0.05s linear 3.2s 3 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__view-1 div:nth-child(3) {
+  animation: fadein 0.05s linear 3.3s 3 alternate forwards;
+}
+
+.chapter-1[data-state="active"] .chapter-1__view-1 div:nth-child(4) {
+  animation: fadein 0.05s linear 3.4s 3 alternate forwards;
+}
+
+.chapter-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chapter-2__view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-2__view-1 div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(calc(100% + 25.5vw));
+}
+
+.chapter-2__view-1 div::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -25.5vw;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-bottom: solid 25.5vw transparent;
+  border-left: solid 50vw transparent;
+  border-right: solid 50vw transparent;
+}
+
+.chapter-2__view-1 div:nth-child(1) {
+  background-color: #c3ce5f;
+}
+
+.chapter-2__view-1 div:nth-child(1)::after {
+  border-bottom-color: #c3ce5f;
+}
+
+.chapter-2__view-1 div:nth-child(2) {
+  background-color: #c45c66;
+}
+
+.chapter-2__view-1 div:nth-child(2)::after {
+  border-bottom-color: #c45c66;
+}
+
+.chapter-2__view-1 div:nth-child(3) {
+  background-color: #283c5f;
+}
+
+.chapter-2__view-1 div:nth-child(3)::after {
+  border-bottom-color: #283c5f;
+}
+
+.chapter-2__view-2 div {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  transform: translateY(100vh);
+}
+
+.chapter-2__view-2 div::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-2__view-2 div:nth-child(1)::after {
+  background-color: #df708e;
+}
+
+.chapter-2__view-2 div:nth-child(2)::after {
+  background-color: #E1C96A;
+}
+
+.chapter-2__view-2 div:nth-child(3)::after {
+  background-color: #4DADAD;
+}
+
+.chapter-2[data-state="active"] {
+  background-color: #283c5f;
+  /**
+   * view-1
+   */
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-1 div:nth-child(1) {
+  animation: chapter-2__show-view-1 0.7s cubic-bezier(0.97, 0.01, 0, 0.97) 0s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-1 div:nth-child(2) {
+  animation: chapter-2__show-view-1 0.7s cubic-bezier(0.97, 0.01, 0, 0.97) 0.2s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-1 div:nth-child(3) {
+  animation: chapter-2__show-view-1 0.7s cubic-bezier(0.97, 0.01, 0, 0.97) 0.4s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-2 div:nth-child(1) {
+  animation: chapter-2__show-view-2 0.6s cubic-bezier(0.85, 0.01, 0.17, 1) 1s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-2 div:nth-child(1)::after {
+  animation: chapter-2__sway-view-2 0.6s ease-in-out 1.0s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-2 div:nth-child(2) {
+  animation: chapter-2__show-view-2 0.6s cubic-bezier(0.85, 0.01, 0.17, 1) 1.2s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-2 div:nth-child(2)::after {
+  animation: chapter-2__sway-view-2 0.6s ease-in-out 1.2s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-2 div:nth-child(3) {
+  animation: chapter-2__show-view-2 0.6s cubic-bezier(0.85, 0.01, 0.17, 1) 1.4s forwards;
+}
+
+.chapter-2[data-state="active"] .chapter-2__view-2 div:nth-child(3)::after {
+  animation: chapter-2__sway-view-2 0.6s ease-in-out 1.4s forwards;
+}
+
+@keyframes chapter-2__show-view-1 {
+  from {
+    transform: translateY(calc(100% + 25.5vw));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes chapter-2__show-view-2 {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes chapter-2__sway-view-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  70% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
